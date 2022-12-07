@@ -8,7 +8,7 @@ load(
 )
 
 swift_library(
-    name = "Swordle_lib",
+    name = "lib_dev",
     srcs = glob([
         "*.swift"
     ]),
@@ -28,15 +28,46 @@ ios_application(
     infoplists = ["Info.plist"],
     families = ["iphone"],
     minimum_os_version = "15.2",
+    # linkopts = ["-ObjC"],
+    deps = [
+        ":lib_dev",
+    ]
+)
+
+swift_library(
+    name = "lib_staging",
+    srcs = glob([
+        "*.swift"
+    ]),
     linkopts = ["-ObjC"],
     deps = [
-        ":Swordle_lib",
+        "@Firebase//:FirebaseAnalytics",
+        "@Firebase//:FirebaseCore",
+        "@Firebase//:FirebaseCrashlytics",
+        "@Firebase//:FirebaseMessaging",
+        "@Firebase//:FirebaseRemoteConfig",
+    ]
+)
+
+ios_application(
+    name = "Swordle_staging",
+    bundle_id = "me.swaminathan.Swordle.staging",
+    infoplists = ["Info.plist"],
+    families = ["iphone"],
+    minimum_os_version = "15.2",
+    # linkopts = ["-ObjC"],
+    deps = [
+        ":lib_staging",
     ]
 )
 
 TARGETS = [
     top_level_target(
         label = "//Swordle:Swordle",
+        target_environments = ["simulator"],
+    ),
+    top_level_target(
+        label = "//Swordle:Swordle_staging",
         target_environments = ["simulator"],
     ),
 ]
@@ -46,6 +77,12 @@ _SCHEMES = [
         name = "Swordle",
         launch_action = xcode_schemes.launch_action(
             target = "//Swordle:Swordle",
+        ),
+    ),
+    xcode_schemes.scheme(
+        name = "Swordle Staging",
+        launch_action = xcode_schemes.launch_action(
+            target = "//Swordle:Swordle_staging",
         ),
     ),
 ]
