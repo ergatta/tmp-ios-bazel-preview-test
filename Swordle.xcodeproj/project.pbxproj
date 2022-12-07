@@ -8,16 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		0F99BB6527D0051F00F0B3DA /* GameError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F99BB6427D0051F00F0B3DA /* GameError.swift */; };
-		0F99BB6727D0129E00F0B3DA /* GameViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F99BB6627D0129D00F0B3DA /* GameViewModelTests.swift */; };
 		0FACE22E27BA27F800F91A19 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FACE22D27BA27F800F91A19 /* GameViewModel.swift */; };
 		0FAE577C2796011E004DEBE5 /* SwordleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAE577B2796011E004DEBE5 /* SwordleApp.swift */; };
 		0FAE577E2796011E004DEBE5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAE577D2796011E004DEBE5 /* ContentView.swift */; };
 		0FAE57802796011F004DEBE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FAE577F2796011F004DEBE5 /* Assets.xcassets */; };
 		0FAE57832796011F004DEBE5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FAE57822796011F004DEBE5 /* Preview Assets.xcassets */; };
-		0FAE578D2796011F004DEBE5 /* SwordleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAE578C2796011F004DEBE5 /* SwordleTests.swift */; };
-		0FAE57972796011F004DEBE5 /* SwordleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAE57962796011F004DEBE5 /* SwordleUITests.swift */; };
-		0FAE57992796011F004DEBE5 /* SwordleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAE57982796011F004DEBE5 /* SwordleUITestsLaunchTests.swift */; };
 		0FAE57A6279601CC004DEBE5 /* KeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAE57A5279601CC004DEBE5 /* KeyView.swift */; };
+		A588BAC12940E1E40079D985 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A588BAC02940E1E40079D985 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +36,6 @@
 
 /* Begin PBXFileReference section */
 		0F99BB6427D0051F00F0B3DA /* GameError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameError.swift; sourceTree = "<group>"; };
-		0F99BB6627D0129D00F0B3DA /* GameViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModelTests.swift; sourceTree = "<group>"; };
 		0FACE22D27BA27F800F91A19 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		0FAE57782796011E004DEBE5 /* Swordle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swordle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FAE577B2796011E004DEBE5 /* SwordleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwordleApp.swift; sourceTree = "<group>"; };
@@ -47,11 +43,9 @@
 		0FAE577F2796011F004DEBE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0FAE57822796011F004DEBE5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0FAE57882796011F004DEBE5 /* SwordleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwordleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0FAE578C2796011F004DEBE5 /* SwordleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwordleTests.swift; sourceTree = "<group>"; };
 		0FAE57922796011F004DEBE5 /* SwordleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwordleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0FAE57962796011F004DEBE5 /* SwordleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwordleUITests.swift; sourceTree = "<group>"; };
-		0FAE57982796011F004DEBE5 /* SwordleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwordleUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0FAE57A5279601CC004DEBE5 /* KeyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyView.swift; sourceTree = "<group>"; };
+		A588BAC02940E1E40079D985 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +77,6 @@
 			isa = PBXGroup;
 			children = (
 				0FAE577A2796011E004DEBE5 /* Swordle */,
-				0FAE578B2796011F004DEBE5 /* SwordleTests */,
-				0FAE57952796011F004DEBE5 /* SwordleUITests */,
 				0FAE57792796011E004DEBE5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -109,6 +101,7 @@
 				0FAE57A5279601CC004DEBE5 /* KeyView.swift */,
 				0FACE22D27BA27F800F91A19 /* GameViewModel.swift */,
 				0F99BB6427D0051F00F0B3DA /* GameError.swift */,
+				A588BAC02940E1E40079D985 /* Info.plist */,
 			);
 			path = Swordle;
 			sourceTree = "<group>";
@@ -119,24 +112,6 @@
 				0FAE57822796011F004DEBE5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		0FAE578B2796011F004DEBE5 /* SwordleTests */ = {
-			isa = PBXGroup;
-			children = (
-				0FAE578C2796011F004DEBE5 /* SwordleTests.swift */,
-				0F99BB6627D0129D00F0B3DA /* GameViewModelTests.swift */,
-			);
-			path = SwordleTests;
-			sourceTree = "<group>";
-		};
-		0FAE57952796011F004DEBE5 /* SwordleUITests */ = {
-			isa = PBXGroup;
-			children = (
-				0FAE57962796011F004DEBE5 /* SwordleUITests.swift */,
-				0FAE57982796011F004DEBE5 /* SwordleUITestsLaunchTests.swift */,
-			);
-			path = SwordleUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,6 +220,7 @@
 			files = (
 				0FAE57832796011F004DEBE5 /* Preview Assets.xcassets in Resources */,
 				0FAE57802796011F004DEBE5 /* Assets.xcassets in Resources */,
+				A588BAC12940E1E40079D985 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,8 +257,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F99BB6727D0129E00F0B3DA /* GameViewModelTests.swift in Sources */,
-				0FAE578D2796011F004DEBE5 /* SwordleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,8 +264,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FAE57972796011F004DEBE5 /* SwordleUITests.swift in Sources */,
-				0FAE57992796011F004DEBE5 /* SwordleUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
