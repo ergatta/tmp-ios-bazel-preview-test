@@ -7,18 +7,17 @@ http_archive(
 )
 
 http_archive(
-    name = "Firebase",
-    urls = ["https://github.com/firebase/firebase-ios-sdk/releases/download/v8.9.1/Firebase.zip"],
-    sha256 = "e03dc8fe6459f276391d1bfec7d7b90ae59fc457a5120724c702b86e954a32dd",
-    build_file = "@//:third_party/firebase-ios/firebase.BUILD",
-    strip_prefix = "Firebase"
-)
-
-http_archive(
     name = "com_github_buildbuddy_io_rules_xcodeproj",
     sha256 = "564381b33261ba29e3c8f505de82fc398452700b605d785ce3e4b9dd6c73b623",
     url = "https://github.com/buildbuddy-io/rules_xcodeproj/releases/download/0.9.0/release.tar.gz",
 )
+
+load(
+    "@com_github_buildbuddy_io_rules_xcodeproj//xcodeproj:repositories.bzl",
+    "xcodeproj_rules_dependencies",
+)
+
+xcodeproj_rules_dependencies()
 
 load(
     "@build_bazel_rules_apple//apple:repositories.bzl",
@@ -47,3 +46,11 @@ load(
 )
 
 apple_support_dependencies()
+
+http_archive(
+    name = "Firebase",
+    urls = ["https://github.com/firebase/firebase-ios-sdk/releases/download/v8.9.1/Firebase.zip"],
+    sha256 = "e03dc8fe6459f276391d1bfec7d7b90ae59fc457a5120724c702b86e954a32dd",
+    build_file = "@//:third_party/firebase-ios/firebase.BUILD",
+    strip_prefix = "Firebase"
+)

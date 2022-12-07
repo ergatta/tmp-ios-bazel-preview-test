@@ -8,7 +8,7 @@ load(
 )
 
 swift_library(
-    name = "Swordle",
+    name = "Swordle_lib",
     srcs = glob([
         "*.swift"
     ]),
@@ -23,20 +23,20 @@ swift_library(
 )
 
 ios_application(
-    name = "swordle",
+    name = "Swordle",
     bundle_id = "me.swaminathan.Swordle",
     infoplists = ["Info.plist"],
     families = ["iphone"],
     minimum_os_version = "15.2",
     linkopts = ["-ObjC"],
     deps = [
-        ":Swordle",
+        ":Swordle_lib",
     ]
 )
 
 TARGETS = [
     top_level_target(
-        label = "//swordle:swordle",
+        label = "//Swordle:Swordle",
         target_environments = ["simulator"],
     ),
 ]
@@ -45,7 +45,7 @@ _SCHEMES = [
     xcode_schemes.scheme(
         name = "Swordle",
         launch_action = xcode_schemes.launch_action(
-            target = "//swordle:swordle",
+            target = "//Swordle:Swordle",
         ),
     ),
 ]
