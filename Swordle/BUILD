@@ -19,6 +19,10 @@ swift_library(
         "@Firebase//:FirebaseCrashlytics",
         "@Firebase//:FirebaseMessaging",
         "@Firebase//:FirebaseRemoteConfig",
+        "@swift_pkgs//Alamofire",
+        "@swift_pkgs//SwiftUI-Shimmer:Shimmer",
+        "@BrazeKit//:BrazeKit",
+        "@BrazeUI//:BrazeUI",
     ]
 )
 
@@ -46,6 +50,10 @@ swift_library(
         "@Firebase//:FirebaseCrashlytics",
         "@Firebase//:FirebaseMessaging",
         "@Firebase//:FirebaseRemoteConfig",
+        "@swift_pkgs//Alamofire",
+        "@swift_pkgs//SwiftUI-Shimmer:Shimmer",
+        "@BrazeKit//:BrazeKit",
+        "@BrazeUI//:BrazeUI",
     ]
 )
 
