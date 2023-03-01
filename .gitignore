@@ -4,3 +4,5 @@ bazel-testings
 bazel-testlogs
 bazel-tmp-ios-bazel-preview-test
 *.xcuserstate
+.DS_Store
+*.xcodeproj

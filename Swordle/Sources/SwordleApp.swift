@@ -7,6 +7,8 @@
 
 import SwiftUI
 import Firebase
+import FirebaseAnalytics
+import BrazeKit
 
 @main
 struct SwordleApp: App {
@@ -15,6 +17,7 @@ struct SwordleApp: App {
             ContentView()
             .onAppear {
                 FirebaseApp.configure()
+                BrazeManager.shared.braze.enabled = true
             }
         }
     }
