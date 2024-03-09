@@ -1,0 +1,98 @@
+load("@build_bazel_rules_apple//apple:ios.bzl", "ios_application")
+load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
+load("@build_bazel_rules_apple//apple:resources.bzl", "apple_resource_group")
+load("@build_bazel_rules_apple//apple:versioning.bzl", "apple_bundle_version")
+load("defs.bzl", "lib_variant", "app_variant")
+
+load(
+    "@com_github_buildbuddy_io_rules_xcodeproj//xcodeproj:defs.bzl",
+    "xcode_schemes",
+    "xcodeproj",
+    "top_level_target"
+)
+
+apple_bundle_version(
+    name = "version",
+    build_version = "1",
+    short_version_string = "1.0.0",
+)
+
+apple_resource_group(
+    name = "Swordle_Resources",
+    resources = ["Info/Base.plist"] + glob(
+        ["Assets/Assets.xcassets/**"]
+    ) + glob([
+        "Assets/Fonts/*",
+        # "Features/Referrals/friendbuy_integration.html",
+        # "Launch/Launch Screen.storyboard",
+    ]),
+    visibility = ["//Swordle:__subpackages__"],
+)
+
+lib_variant(
+    name = "lib_dev",
+    module_name = "Swordle",
+    visibility = ["//Swordle:__subpackages__"],
+)
+
+app_variant(
+    name = "Swordle",
+    lib_target = ":lib_dev",
+    bundle_id = "me.swaminathan.Swordle",
+    bundle_name = "Swordle",
+    infoplists = ["Info/Dev.plist"],
+)
+
+lib_variant(
+    name = "lib_staging",
+    module_name = "SwordleStaging",
+)
+
+app_variant(
+    name = "Swordle_staging",
+    lib_target = ":lib_staging",
+    bundle_id = "me.swaminathan.Swordle.staging",
+    bundle_name = "SwordleStaging",
+    infoplists = ["Info/Staging.plist"],
+)
+
+TARGETS = [
+    top_level_target(
+        label = "//Swordle:Swordle",
+        target_environments = ["simulator"],
+    ),
+    top_level_target(
+        label = "//Swordle:Swordle_staging",
+        target_environments = ["simulator"],
+    ),
+]
+
+TESTS = [
+    "//Swordle/Tests:GameViewModelTests",
+    "//Swordle/Tests:SwordleTests",
+]
+
+_SCHEMES = [
+    xcode_schemes.scheme(
+        name = "Swordle",
+        launch_action = xcode_schemes.launch_action(
+            target = "//Swordle:Swordle",
+        ),
+    ),
+    xcode_schemes.scheme(
+        name = "SwordleStaging",
+        launch_action = xcode_schemes.launch_action(
+            target = "//Swordle:Swordle_staging",
+        ),
+    ),
+]
+
+xcodeproj(
+    name = "xcodeproj",
+    project_name = "swordle",
+    tags = ["manual"],
+    build_mode = "bazel",
+    archived_bundles_allowed = True,
+    schemes = _SCHEMES,
+    top_level_targets = TARGETS + TESTS,
+)

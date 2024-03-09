@@ -54,3 +54,56 @@ http_archive(
     build_file = "@//:third_party/firebase-ios/firebase.BUILD",
     strip_prefix = "Firebase"
 )
+
+http_archive(
+    name = "BrazeKit",
+    urls = ["https://github.com/braze-inc/braze-swift-sdk/releases/download/5.5.0/BrazeKit.zip"],
+    sha256 = "a20b8922491b014387b09f8284738585a700735b5f48ff88446ba7e3d2422544",
+    build_file = "@//:third_party/braze/ios_brazekit.BUILD",
+)
+
+http_archive(
+    name = "BrazeUI",
+    urls = ["https://github.com/braze-inc/braze-swift-sdk/archive/refs/tags/5.5.0.zip"],
+    sha256 = "6540e762e6a2767d94a9a68381b72bedc9728b68c421db99f725c09bff0bbc3e",
+    build_file = "@//:third_party/braze/ios_brazeui.BUILD",
+    strip_prefix = "braze-swift-sdk-5.5.0",
+)
+
+http_archive(
+    name = "cgrindel_rules_spm",
+    sha256 = "03718eb865a100ba4449ebcbca6d97bf6ea78fa17346ce6d55532312e8bf9aa8",
+    strip_prefix = "rules_spm-0.11.0",
+    urls = [
+        "http://github.com/cgrindel/rules_spm/archive/v0.11.0.tar.gz",
+    ],
+)
+
+load(
+    "@cgrindel_rules_spm//spm:deps.bzl",
+    "spm_rules_dependencies",
+)
+
+spm_rules_dependencies()
+
+load("@cgrindel_rules_spm//spm:defs.bzl", "spm_pkg", "spm_repositories")
+
+spm_repositories(
+    name = "swift_pkgs",
+    platforms = [
+        ".iOS(.v10)",
+        ".macOS(.v10_15)",
+    ],
+    dependencies = [
+        spm_pkg(
+            url = "https://github.com/Alamofire/Alamofire.git",
+            exact_version = "5.6.1",
+            products = ["Alamofire"],
+        ),
+        spm_pkg(
+            url = "https://github.com/markiv/SwiftUI-Shimmer",
+            exact_version = "1.0.0",
+            products = ["Shimmer"]
+        ),
+    ],
+)

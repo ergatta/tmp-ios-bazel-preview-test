@@ -1,0 +1,38 @@
+load("@build_bazel_rules_apple//apple:ios.bzl", "ios_unit_test")
+load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
+
+package(
+    default_visibility = ["//Swordle:__subpackages__"],
+)
+
+ios_unit_test(
+    name = "GameViewModelTests",
+    minimum_os_version = "15.0",
+    deps = [":GameViewModelTestsLib"],
+)
+
+swift_library(
+    name = "GameViewModelTestsLib",
+    testonly = True,
+    srcs = ["GameViewModelTests.swift"],
+    tags = ["manual"],
+    deps = [
+        "//Swordle:lib_dev",
+    ],
+)
+
+ios_unit_test(
+    name = "SwordleTests",
+    minimum_os_version = "15.0",
+    deps = [":SwordleTestsLib"],
+)
+
+swift_library(
+    name = "SwordleTestsLib",
+    testonly = True,
+    srcs = ["SwordleTests.swift"],
+    tags = ["manual"],
+    deps = [
+        "//Swordle:lib_dev",
+    ],
+)
